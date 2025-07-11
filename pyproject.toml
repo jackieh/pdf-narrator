@@ -1,0 +1,25 @@
+[project]
+name = "pdf-narrator"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "pymupdf (>=1.26.3,<2.0.0)",
+    "pyttsx3 (>=2.99,<3.0)",
+]
+
+[tool.poetry]
+packages = [{include = "pdf_narrator", from = "src"}]
+
+[tool.poetry.scripts]
+pdf-narrator = "pdf_narrator.main:main"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^6.0.1"
+black = "^25.1.0"
+ruff = "^0.12.2"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
