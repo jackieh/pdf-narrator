@@ -6,6 +6,7 @@ Requires:
 
 - Python 3.9+
 - [Poetry](https://python-poetry.org/)
+- [Espeak](https://espeak.sourceforge.net/) or [Espeak NG](https://github.com/espeak-ng/espeak-ng) on Linux
 
 ## How to run
 

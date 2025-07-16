@@ -15,18 +15,23 @@ def extract_text_from_pdf(pdf_path):
     return full_text
 
 
+def do_with_default_tts_engine(func):
+    engine = pyttsx3.init()
+    engine.setProperty("volume", 1.0)
+    engine.setProperty("rate", 175)
+    func(engine)
+    engine.runAndWait()
+    engine.stop()
+
+
 def speak_text(text):
     print("Speaking text")
-    engine = pyttsx3.init()
-    engine.say(text)
-    engine.runAndWait()
+    do_with_default_tts_engine(lambda engine: engine.say(text))
 
 
 def export_text_to_wav(text, output_path):
     print(f"Saving audio to file: {output_path}")
-    engine = pyttsx3.init()
-    engine.save_to_file(text, output_path)
-    engine.runAndWait()
+    do_with_default_tts_engine(lambda engine: engine.save_to_file(text, output_path))
 
 
 def main():
