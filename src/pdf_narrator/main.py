@@ -36,15 +36,10 @@ def export_text_to_wav(text, output_path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Extract text from PDF and optionally speak it or save to WAV."
+        description="Extract text from PDF and either speak it or save to WAV."
     )
     parser.add_argument("pdf_path", type=str, help="PDF file path")
-    parser.add_argument(
-        "-o", "--output", type=str, default="output.wav", help="output WAV file path"
-    )
-    parser.add_argument(
-        "-s", "--speak", action="store_true", help="speak the extracted text"
-    )
+    parser.add_argument("-o", "--output", type=str, help="output WAV file path")
     args = parser.parse_args()
 
     if not os.path.exists(args.pdf_path):
@@ -57,10 +52,10 @@ def main():
         print("No text was extracted from file")
         sys.exit(1)
 
-    if args.speak:
-        speak_text(text)
-    else:
+    if args.output:
         export_text_to_wav(text, args.output)
+    else:
+        speak_text(text)
 
     print("Done")
 
