@@ -19,13 +19,13 @@ poetry install
 To export audio to `output.wav`:
 
 ```bash
-poetry run pdf-narrator <pdf_path>
+poetry run pdf-narrator <pdf_path> --output output.wav
 ```
 
 To speak audio:
 
 ```bash
-poetry run pdf-narrator <pdf_path> --speak
+poetry run pdf-narrator <pdf_path>
 ```
 
 To see all usage options:
